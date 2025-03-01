@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,7 +10,7 @@
   /* text-align: center; */
 }
 
-ul li{
+ul li {
   list-style-position: inside;
   list-style: none;
   display: inline-block;
@@ -21,4 +21,73 @@ ul li{
   padding: 0.5rem 1rem;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+
+li.active-tab{
+  background-color: blue;
+  color: #fff;
+}
+
+.tab-content {
+  background-color: gainsboro;
+  padding: 1.5rem;
+  color: #000;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.tab-content h4 {
+  margin-bottom: 1rem;
+  color: blue;
+}
+
+.tab-details {
+  margin-bottom: 1rem;
+}
+
+
+.tab-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.tab-actions > button {
+  color: blue;
+  background-color: inherit;
+  text-decoration: underline;
+  outline: none;
+}
+
+.hearts-rating {
+  display: flex;
+  gap: 10px;
+}
+
+.hearts-rating span {
+  color: #f00;
+}
+
+.hearts-rating button,
+.tab-undos button {
+  border-radius: 3px;
+  color: #fff;
+}
+
+.hearts-rating button {
+  padding: 0 5px;
+  background-color: red;
+}
+
+.tab-undos button {
+  background-color: blue;
+  padding: 0.3rem;
+  border: none;
+  outline: none;
+}
+
+.tab-undos button:first-child {
+  margin-right: 10px;
 }
