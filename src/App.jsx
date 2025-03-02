@@ -43,7 +43,10 @@ function Tabbed({ content }) {
         <TabButton num={3} activeTab={activeTab} onClick={handleActiveTab} />
       </ul>
       {activeTab <= 2 ? (
-        <TabContent content={content.at(activeTab)} />
+        <TabContent
+          content={content.at(activeTab)}
+          key={content.at(activeTab).summary}
+        />
       ) : (
         <DifferentContent />
       )}
@@ -51,53 +54,53 @@ function Tabbed({ content }) {
   );
 }
 
-// function TabContent({ content }) {
-//   const [showDetails, setShowDetails] = useState(true);
-//   const [likes, setLikes] = useState(0);
+function TabContent({ content }) {
+  const [showDetails, setShowDetails] = useState(true);
+  const [likes, setLikes] = useState(0);
 
-//   function handleShowDetails() {
-//     setShowDetails((prev) => !prev);
-//   }
-//   return (
-//     <div className="tab-content">
-//       <h4 className="tab-summary">{content.summary}</h4>
-//       {showDetails && <p className="tab-details">{content.details}</p>}
+  function handleShowDetails() {
+    setShowDetails((prev) => !prev);
+  }
+  return (
+    <div className="tab-content">
+      <h4 className="tab-summary">{content.summary}</h4>
+      {showDetails && <p className="tab-details">{content.details}</p>}
 
-//       <div className="tab-actions">
-//         <button onClick={handleShowDetails}>
-//           {showDetails ? "Hide" : "Show"} details
-//         </button>
-//         <div className="hearts-rating">
-//           <span>{likes} ❤</span>
-//           <button onClick={() => setLikes((likes) => likes + 1)}>+</button>
-//           <button>++++</button>
-//         </div>
-//       </div>
+      <div className="tab-actions">
+        <button onClick={handleShowDetails}>
+          {showDetails ? "Hide" : "Show"} details
+        </button>
+        <div className="hearts-rating">
+          <span>{likes} ❤</span>
+          <button onClick={() => setLikes((likes) => likes + 1)}>+</button>
+          <button>++++</button>
+        </div>
+      </div>
 
-//       <div className="tab-undos">
-//         <button>Undo</button>
-//         <button>Undo in 2s</button>
-//       </div>
-//     </div>
-//   );
-// }
+      <div className="tab-undos">
+        <button>Undo</button>
+        <button>Undo in 2s</button>
+      </div>
+    </div>
+  );
+}
 
-// function TabButton({ num, activeTab, onClick }) {
-//   return (
-//     <li
-//       className={activeTab === num ? "active-tab" : ""}
-//       onClick={() => onClick(num)}
-//     >
-//       Tab {num + 1}
-//     </li>
-//   );
-// }
+function TabButton({ num, activeTab, onClick }) {
+  return (
+    <li
+      className={activeTab === num ? "active-tab" : ""}
+      onClick={() => onClick(num)}
+    >
+      Tab {num + 1}
+    </li>
+  );
+}
 
-// function DifferentContent() {
-//   return (
-//     <div className="tab-content">
-//       <h4 className="tab-summary">This Tab is totally a DifferentContent</h4>
-//       <p>If you are seeing this that means this component is working</p>
-//     </div>
-//   );
-// }
+function DifferentContent() {
+  return (
+    <div className="tab-content">
+      <h4 className="tab-summary">This Tab is totally a DifferentContent</h4>
+      <p>If you are seeing this that means this component is working</p>
+    </div>
+  );
+}
